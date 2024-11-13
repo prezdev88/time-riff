@@ -13,6 +13,8 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - time_riff_net
   backend:
     build:
       context: ./time-riff-backend
@@ -26,5 +28,10 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://database:3306/time_riff
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 123123
+    networks:
+      - time_riff_net
 volumes:
   db_data:
+networks:
+  time_riff_net:
+    name: time-riff-network
