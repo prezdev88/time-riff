@@ -18,6 +18,10 @@ docker volume ls
 
 # Ver info del volumen
 docker volume inspect time-riff_db_data
+
+# En el caso que existan cambios en el script init.sql
+docker compose down -v  # Esto apaga y elimina todos los volúmenes
+docker compose up --build -d database
 ```
 
 # Ejecutar

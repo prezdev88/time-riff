@@ -1,4 +1,4 @@
-package com.example.time_riff_backend.model;
+package com.example.time_riff_backend.model.dto;
 
 import lombok.Data;
 
