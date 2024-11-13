@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: time_riff_db
+    environment:
+      MARIADB_ROOT_PASSWORD: 123123
+      MARIADB_DATABASE: time_riff
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+  backend:
+    build:
+      context: ./time-riff-backend
+      dockerfile: Dockerfile
+    container_name: time_riff_backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://database:3306/time_riff
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123123
+volumes:
+  db_data:
