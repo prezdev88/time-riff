@@ -26,8 +26,7 @@ docker compose up --build -d database
 
 # Ejecutar
 ```bash
-cd time-riff-backend/
-./mvnw clean install
+cd time-riff-backend/ & ./mvnw clean install
 docker compose up --build -d
 curl http://localhost:8080/test
 curl http://localhost:8080/bands

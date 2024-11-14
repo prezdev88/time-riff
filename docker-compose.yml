@@ -15,6 +15,12 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - time_riff_net
+    healthcheck:
+      test: ["CMD-SHELL", "test -S /var/run/mysqld/mysqld.sock || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 6
+
   backend:
     build:
       context: ./time-riff-backend
@@ -23,7 +29,8 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:mariadb://database:3306/time_riff
       SPRING_DATASOURCE_USERNAME: root
