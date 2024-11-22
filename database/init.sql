@@ -15,6 +15,14 @@ CREATE TABLE album (
     FOREIGN KEY (band_id) REFERENCES band(id) ON DELETE CASCADE
 );
 
+CREATE TABLE band_member (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    band_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    birth_date DATE NOT NULL,
+    FOREIGN KEY (band_id) REFERENCES band(id) ON DELETE CASCADE
+);
+
 -- Inserción de bandas
 INSERT INTO band (name) VALUES 
     ('Metallica'),
@@ -396,3 +404,123 @@ INSERT INTO album (band_id, title, release_date, cover_url) VALUES
     (30, "L\'Enfant Sauvage", '2012-06-26', 'https://example.com/lenfant_sauvage.jpg'),
     (30, 'Magma', '2016-06-17', 'https://example.com/magma.jpg'),
     (30, 'Fortitude', '2021-04-30', 'https://example.com/fortitude.jpg');
+
+-- Metallica
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (1, 'James Hetfield', '1963-08-03');
+
+-- Iron Maiden
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (2, 'Bruce Dickinson', '1958-08-07');
+
+-- Slayer
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (3, 'Tom Araya', '1961-06-06');
+
+-- Death
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (4, 'Chuck Schuldiner', '1967-05-13');
+
+-- Cannibal Corpse
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (5, 'George Fisher', '1969-07-08');
+
+-- Deicide
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (6, 'Glen Benton', '1967-06-18');
+
+-- Dream Theater
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (7, 'James LaBrie', '1963-05-05');
+
+-- Meshuggah
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (8, 'Jens Kidman', '1966-06-08');
+
+-- Criminal
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (9, 'Anton Reisenegger', '1969-01-21');
+
+-- Sepultura
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (10, 'Derrick Green', '1971-01-20');
+
+-- Pentagram Chile
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (11, 'Anton Reisenegger', '1969-01-21');
+
+-- Deeds of Flesh
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (12, 'Erik Lindmark', '1972-08-15');
+
+-- Beheaded
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (13, 'Frank Calleja', '1980-05-12');
+
+-- Symphony X
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (14, 'Russell Allen', '1971-07-19');
+
+-- Veil of Maya
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (15, 'Lukas Magyar', '1988-02-18');
+
+-- Animals as Leaders
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (16, 'Tosin Abasi', '1983-01-07');
+
+-- Vildhjarta
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (17, 'Daniel Ädel', '1985-09-03');
+
+-- Korn
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (18, 'Jonathan Davis', '1971-01-18');
+
+-- Slipknot
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (19, 'Corey Taylor', '1973-12-08');
+
+-- Mudvayne
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (20, 'Chad Gray', '1971-10-16');
+
+-- Disturbed
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (21, 'David Draiman', '1973-03-13');
+
+-- Octopus
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (22, 'Felipe Urra', '1984-11-21');
+
+-- 2X
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (23, 'Mauricio Pezoa', '1977-06-15');
+
+-- Immortal
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (24, 'Abbath Doom Occulta', '1973-06-27');
+
+-- Darkthrone
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (25, 'Nocturno Culto', '1972-03-04');
+
+-- Amon Amarth
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (26, 'Johan Hegg', '1973-04-29');
+
+-- Children of Bodom
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (27, 'Alexi Laiho', '1979-04-08');
+
+-- Car Bomb
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (28, 'Michael Dafferner', '1983-11-10');
+
+-- Lamb of God
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (29, 'Randy Blythe', '1971-02-21');
+
+-- Gojira
+INSERT INTO band_member (band_id, name, birth_date) VALUES
+    (30, 'Joe Duplantier', '1976-10-19');
